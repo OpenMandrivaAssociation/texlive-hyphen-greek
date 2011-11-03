@@ -1,3 +1,9 @@
+# revision 23092
+# category TLCore
+# catalog-ctan /language/hyphenation/elhyphen
+# catalog-date 2008-07-24 15:32:45 +0200
+# catalog-license other-free
+# catalog-version 5
 Name:		texlive-hyphen-greek
 Version:	5
 Release:	1
@@ -65,6 +71,7 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 %doc %{_texmfdir}/doc/generic/elhyphen/compound.pdf
 %doc %{_texmfdir}/doc/generic/elhyphen/copyrite.txt
 %doc %{_texmfdir}/doc/generic/elhyphen/modern.pdf
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -75,6 +82,8 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-greek <<EOF
 %% from hyphen-greek:
