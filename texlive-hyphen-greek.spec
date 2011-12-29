@@ -19,8 +19,6 @@ Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
 Requires(post):	texlive-hyphen-base
 Requires:	texlive-hyph-utf8
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Hyphenation patterns for Modern Greek in monotonic and
@@ -28,28 +26,12 @@ polytonic spelling in LGR and UTF-8 encodings.  Patterns in
 UTF-8 use two code positions for each of the vowels with acute
 accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 
-%pre
-    %_texmf_language_dat_pre
-    %_texmf_language_def_pre
-    %_texmf_language_lua_pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-    %_texmf_language_lua_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_language_dat_pre
-	%_texmf_language_def_pre
-	%_texmf_language_lua_pre
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
-	%_texmf_language_lua_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -67,7 +49,6 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 %doc %{_texmfdir}/doc/generic/elhyphen/compound.pdf
 %doc %{_texmfdir}/doc/generic/elhyphen/copyrite.txt
 %doc %{_texmfdir}/doc/generic/elhyphen/modern.pdf
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -78,8 +59,6 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf %{buildroot}%{_datadir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-greek <<EOF
 %% from hyphen-greek:
