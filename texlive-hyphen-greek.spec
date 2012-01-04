@@ -61,14 +61,14 @@ mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-greek <<EOF
-%% from hyphen-greek:
+\%\% from hyphen-greek:
 monogreek loadhyph-el-monoton.tex
 greek loadhyph-el-polyton.tex
 =polygreek
 EOF
 mkdir -p %{buildroot}%{_texmf_language_def_d}
 cat > %{buildroot}%{_texmf_language_def_d}/hyphen-greek <<EOF
-%% from hyphen-greek:
+\%\% from hyphen-greek:
 \addlanguage{monogreek}{loadhyph-el-monoton.tex}{}{1}{1}
 \addlanguage{greek}{loadhyph-el-polyton.tex}{}{1}{1}
 \addlanguage{polygreek}{loadhyph-el-polyton.tex}{}{1}{1}
