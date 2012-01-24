@@ -6,7 +6,7 @@
 # catalog-version 5
 Name:		texlive-hyphen-greek
 Version:	5
-Release:	2
+Release:	3
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
@@ -61,18 +61,20 @@ mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-greek <<EOF
-\%\% from hyphen-greek:
+\%% from hyphen-greek:
 monogreek loadhyph-el-monoton.tex
 greek loadhyph-el-polyton.tex
 =polygreek
 EOF
+perl -pi -e 's|\\%%|%%|;' %{buildroot}%{_texmf_language_dat_d}/hyphen-greek
 mkdir -p %{buildroot}%{_texmf_language_def_d}
 cat > %{buildroot}%{_texmf_language_def_d}/hyphen-greek <<EOF
-\%\% from hyphen-greek:
+\%% from hyphen-greek:
 \addlanguage{monogreek}{loadhyph-el-monoton.tex}{}{1}{1}
 \addlanguage{greek}{loadhyph-el-polyton.tex}{}{1}{1}
 \addlanguage{polygreek}{loadhyph-el-polyton.tex}{}{1}{1}
 EOF
+perl -pi -e 's|\\%%|%%|;' %{buildroot}%{_texmf_language_def_d}/hyphen-greek
 mkdir -p %{buildroot}%{_texmf_language_lua_d}
 cat > %{buildroot}%{_texmf_language_lua_d}/hyphen-greek <<EOF
 -- from hyphen-greek:
