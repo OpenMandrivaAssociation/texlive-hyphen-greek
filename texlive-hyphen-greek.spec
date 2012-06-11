@@ -1,4 +1,4 @@
-# revision 23092
+# revision 25990
 # category TLCore
 # catalog-ctan /language/hyphenation/elhyphen
 # catalog-date 2008-07-24 15:32:45 +0200
@@ -6,7 +6,7 @@
 # catalog-version 5
 Name:		texlive-hyphen-greek
 Version:	5
-Release:	3
+Release:	5
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
