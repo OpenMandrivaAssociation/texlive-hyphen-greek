@@ -1,12 +1,12 @@
-# revision 25990
+# revision 29725
 # category TLCore
 # catalog-ctan /language/hyphenation/elhyphen
-# catalog-date 2008-07-24 15:32:45 +0200
+# catalog-date 2012-05-25 14:41:32 +0200
 # catalog-license other-free
 # catalog-version 5
 Name:		texlive-hyphen-greek
 Version:	5
-Release:	5
+Release:	6
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
@@ -36,19 +36,19 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdir}/tex/generic/hyphen/grmhyph5.tex
-%{_texmfdir}/tex/generic/hyphen/grphyph5.tex
+%{_texmfdistdir}/tex/generic/hyphen/grmhyph5.tex
+%{_texmfdistdir}/tex/generic/hyphen/grphyph5.tex
 %_texmf_language_dat_d/hyphen-greek
 %_texmf_language_def_d/hyphen-greek
 %_texmf_language_lua_d/hyphen-greek
-%doc %{_texmfdir}/doc/generic/elhyphen/README
-%doc %{_texmfdir}/doc/generic/elhyphen/anc-test.ltx
-%doc %{_texmfdir}/doc/generic/elhyphen/anc-test.pdf
-%doc %{_texmfdir}/doc/generic/elhyphen/ancient.pdf
-%doc %{_texmfdir}/doc/generic/elhyphen/compound.ltx
-%doc %{_texmfdir}/doc/generic/elhyphen/compound.pdf
-%doc %{_texmfdir}/doc/generic/elhyphen/copyrite.txt
-%doc %{_texmfdir}/doc/generic/elhyphen/modern.pdf
+%doc %{_texmfdistdir}/doc/generic/elhyphen/README
+%doc %{_texmfdistdir}/doc/generic/elhyphen/anc-test.ltx
+%doc %{_texmfdistdir}/doc/generic/elhyphen/anc-test.pdf
+%doc %{_texmfdistdir}/doc/generic/elhyphen/ancient.pdf
+%doc %{_texmfdistdir}/doc/generic/elhyphen/compound.ltx
+%doc %{_texmfdistdir}/doc/generic/elhyphen/compound.pdf
+%doc %{_texmfdistdir}/doc/generic/elhyphen/copyrite.txt
+%doc %{_texmfdistdir}/doc/generic/elhyphen/modern.pdf
 
 #-----------------------------------------------------------------------
 %prep
@@ -57,8 +57,8 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 %build
 
 %install
-mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_texmfdistdir}
+cp -fpar tex doc %{buildroot}%{_texmfdistdir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
 cat > %{buildroot}%{_texmf_language_dat_d}/hyphen-greek <<EOF
 \%% from hyphen-greek:
@@ -95,25 +95,3 @@ cat > %{buildroot}%{_texmf_language_lua_d}/hyphen-greek <<EOF
 		hyphenation = '',
 	},
 EOF
-
-
-%changelog
-* Mon Jun 11 2012 Paulo Andrade <pcpa@mandriva.com.br> 5-5
-+ Revision: 804741
-- Update to latest release.
-
-* Tue Jan 24 2012 Paulo Andrade <pcpa@mandriva.com.br> 5-3
-+ Revision: 767554
-- Add workaround to rpm bug that broke hyphenation files
-
-* Wed Jan 11 2012 Paulo Andrade <pcpa@mandriva.com.br> 5-2
-+ Revision: 759916
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 5-1
-+ Revision: 718658
-- texlive-hyphen-greek
-- texlive-hyphen-greek
-- texlive-hyphen-greek
-- texlive-hyphen-greek
-
