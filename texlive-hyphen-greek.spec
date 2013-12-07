@@ -6,7 +6,7 @@
 # catalog-version 5
 Name:		texlive-hyphen-greek
 Version:	5
-Release:	7
+Release:	8
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
