@@ -6,7 +6,7 @@
 # catalog-version 5
 Name:		texlive-hyphen-greek
 Version:	5
-Release:	15
+Release:	2
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
@@ -36,6 +36,8 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 
 #-----------------------------------------------------------------------
 %files
+%{_texmfdistdir}/tex/generic/hyph-utf8/loadhyph/*
+%{_texmfdistdir}/tex/generic/hyph-utf8/patterns/*/*
 %{_texmfdistdir}/tex/generic/hyphen/grmhyph5.tex
 %{_texmfdistdir}/tex/generic/hyphen/grphyph5.tex
 %_texmf_language_dat_d/hyphen-greek
@@ -57,6 +59,9 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 %build
 
 %install
+mkdir -p %{buildroot}%{_texmfdistdir}
+cp -fpar tex %{buildroot}%{_texmfdistdir}
+
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
 mkdir -p %{buildroot}%{_texmf_language_dat_d}
