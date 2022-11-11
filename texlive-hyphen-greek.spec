@@ -1,18 +1,12 @@
-# revision 29725
-# category TLCore
-# catalog-ctan /language/hyphenation/elhyphen
-# catalog-date 2012-05-25 14:41:32 +0200
-# catalog-license other-free
-# catalog-version 5
 Name:		texlive-hyphen-greek
-Version:	5
-Release:	3
+Version:	58652
+Release:	1
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-greek.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-greek.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-greek.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-greek.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -27,12 +21,12 @@ UTF-8 use two code positions for each of the vowels with acute
 accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -54,7 +48,7 @@ accent (a.k.a tonos, oxia), e.g., U+03AC, U+1F71 for alpha.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
