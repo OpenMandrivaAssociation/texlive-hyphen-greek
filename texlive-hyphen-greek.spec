@@ -1,6 +1,6 @@
 Name:		texlive-hyphen-greek
 Version:	58652
-Release:	1
+Release:	2
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
