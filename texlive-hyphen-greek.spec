@@ -3,7 +3,7 @@ Version:	58652
 Release:	2
 Summary:	Modern Greek hyphenation patterns
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/language/hyphenation/elhyphen
+URL:		https://www.ctan.org/tex-archive/language/hyphenation/elhyphen
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-greek.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/hyphen-greek.doc.r%{version}.tar.xz
